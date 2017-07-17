@@ -1,1 +1,1 @@
-LoRA Telemic Imeplementation
+LoRa Telemic Imeplementation
