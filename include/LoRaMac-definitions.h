@@ -268,7 +268,7 @@ Maintainer: Miguel Luis and Gregory Cristian
 /*!
  * Maximal datarate that can be used by the node
  */
-#define LORAMAC_TX_MAX_DATARATE                     DR_0 // TODO Set it to zero (orginal is DR_5) to force use SF 12 all time to test coverage
+#define LORAMAC_TX_MAX_DATARATE                     DR_5 // TODO Set it to zero (orginal is DR_5) to force use SF 12 all time to test coverage
 
 /*!
  * Minimal datarate that can be used by the node

@@ -2835,7 +2835,7 @@ static int8_t AlternateDatarate( uint16_t nbTrials )
     }
     else
     {
-        datarate = DR_5;
+        datarate = DR_0; //TODO: The SF used for the join in OTA we set it to 12=(DR_0)
     }
 #endif
     return datarate;
