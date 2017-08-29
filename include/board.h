@@ -68,7 +68,8 @@
 //#define RADIO_DIO_3                                 PB_7
 //#define RADIO_DIO_4                                 PB_5
 #define RADIO_DIO_5                                 PA_1 // Clock source from the modem
-
+#define RED_LED                                     PA_2
+#define Water_HL                                    PB_3
 
 //#define RADIO_ANT_SWITCH_RX                         PC_13
 //#define RADIO_ANT_SWITCH_TX                         PA_4

@@ -34,6 +34,7 @@
 //Gpio_t PB_3;
 COMP_HandleTypeDef hcomp;
 Gpio_t HLpin;
+Gpio_t LED;
 
 TIM_HandleTypeDef htim21;
 
@@ -116,7 +117,15 @@ void BoardInitMcu( void )
         RTCCalibration();
         BoardUnusedIoInit( );
         //COMP_Init();
-        GpioMcuInit( &HLpin, PB_3, PIN_OUTPUT, PIN_PUSH_PULL, PIN_NO_PULL, 0 );
+        GpioMcuInit( &HLpin, Water_HL, PIN_OUTPUT, PIN_PUSH_PULL, PIN_NO_PULL, 0 );
+        GpioMcuInit( &LED, RED_LED, PIN_OUTPUT, PIN_PUSH_PULL, PIN_PULL_DOWN, 1 );
+//        while(1){  //infinite LED toggling function
+//        	GpioMcuWrite(&LED, 1);
+//        	HAL_Delay(1000);
+//        	GpioMcuWrite(&LED, 0);
+//        	HAL_Delay(1000);
+//        }
+
         HAL_Delay(10000);
 
     }
