@@ -50,6 +50,9 @@ endif
 SECONDARY_FLASH += \
 telemic_v1.hex \
 
+SECONDARY_FLASH += \
+telemic_v1.bin \
+
 SECONDARY_SIZE += \
 telemic_v1.siz \
 
@@ -61,13 +64,19 @@ all: telemic_v1.elf secondary-outputs
 telemic_v1.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross ARM C++ Linker'
-	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -Wall -Wextra  -g -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"telemic_v1.map" --specs=nano.specs -o "telemic_v1.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall  -g3 -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"telemic_v1.map" --specs=nano.specs -o "telemic_v1.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 telemic_v1.hex: telemic_v1.elf
 	@echo 'Invoking: Cross ARM GNU Create Flash Image'
 	arm-none-eabi-objcopy -O ihex "telemic_v1.elf"  "telemic_v1.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+	
+telemic_v1.bin: telemic_v1.elf
+	@echo 'Invoking: Cross ARM GNU Create Flash Image'
+	arm-none-eabi-objcopy -O binary "telemic_v1.elf"  "telemic_v1.bin"
 	@echo 'Finished building: $@'
 	@echo ' '
 

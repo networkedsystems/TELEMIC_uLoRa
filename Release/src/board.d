@@ -39,7 +39,7 @@ src/board.o: ../src/board.c ../include/board.h \
  ../include/spi-board.h ../include/radio.h ../include/sx1272.h \
  ../include/sx1272Regs-Fsk.h ../include/sx1272Regs-LoRa.h \
  ../include/adc-board.h ../include/rtc-board.h ../include/sx1272-board.h \
- ../include/sx1272.h
+ ../include/sx1272.h ../include/radio.h
 
 ../include/board.h:
 
@@ -142,3 +142,5 @@ src/board.o: ../src/board.c ../include/board.h \
 ../include/sx1272-board.h:
 
 ../include/sx1272.h:
+
+../include/radio.h:
