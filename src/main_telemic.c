@@ -551,13 +551,15 @@ int main( void )
             PrepareTxFrame( AppPort );
             
             RTCCalibration();
-            if(messageCounter<5){  //transmit one downlink after 6 uplink!
-            	messageCounter ++;
-            	IsTxConfirmed = false;
-            }else{
-            	messageCounter = 0;
-            	IsTxConfirmed = true;
-            }
+
+            //TODO: Downlink messages (ACK). Uncomment the following to transmit one downlink after 6 uplink!
+//            if(messageCounter<5){
+//            	messageCounter ++;
+//            	IsTxConfirmed = false;
+//            }else{
+//            	messageCounter = 0;
+//            	IsTxConfirmed = true;
+//            }
             trySendingFrameAgain = SendFrame( );
         }
         if(RadioDio1Workaround()){
